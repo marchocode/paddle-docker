@@ -1,10 +1,10 @@
-FROM paddlepaddle/paddle:3.0.0b1-gpu-cuda11.8-cudnn8.6-trt8.5
+FROM registry.baidubce.com/paddlepaddle/paddle:3.0.0b1-gpu-cuda11.8-cudnn8.6-trt8.5
 
 WORKDIR /home
 COPY 11.jpg .
 
 RUN mkdir upload
-RUN pip install paddleocr gunicorn
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple paddleocr gunicorn flask
 
 COPY app.py .
 COPY enterpoint.sh .

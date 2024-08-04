@@ -27,7 +27,7 @@ def upload_file():
     target = os.path.join(app.config['UPLOAD_FOLDER'], filename);
     file.save(target)
 
-    ocr = PaddleOCR(use_angle_cls=True)
+    ocr = PaddleOCR(use_angle_cls=True,gpu_mem=16000)
     result = ocr.ocr(target, cls=True)
 
     for idx in range(len(result)):
