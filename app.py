@@ -27,7 +27,7 @@ def upload_file():
     target = os.path.join(app.config['UPLOAD_FOLDER'], filename);
     file.save(target)
 
-    ocr = PaddleOCR(use_angle_cls=True, use_gpu=False)  # need to run only once to download and load model into memory
+    ocr = PaddleOCR(use_angle_cls=True)
     result = ocr.ocr(target, cls=True)
 
     for idx in range(len(result)):
